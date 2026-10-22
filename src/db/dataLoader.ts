@@ -13,21 +13,37 @@ import { N5_VOCAB_SRS } from '../data/n5/vocab';
 import { N4_VOCAB_SRS } from '../data/n4/vocab';
 import { N3_VOCAB_SRS } from '../data/n3/vocab';
 import { DOKKAI_READINGS } from '../data/n3/readings';
+import { N2_KANJI } from '../data/n2/kanji';
+import { N2_GRAMMAR } from '../data/n2/grammar';
+import { N2_VOCAB_SRS } from '../data/n2/vocab';
+import { N2_READINGS } from '../data/n2/readings';
+import { N1_KANJI } from '../data/n1/kanji';
+import { N1_GRAMMAR } from '../data/n1/grammar';
+import { N1_VOCAB_SRS } from '../data/n1/vocab';
+import { N1_READINGS } from '../data/n1/readings';
 
-export const CURRENT_DATA_VERSION = '2.0.0';
+export const CURRENT_DATA_VERSION = '2.1.0';
 
 export const CHUNK_FILES = [
   'kana.json',
   'n5_kanji.json',
   'n4_kanji.json',
   'n3_kanji.json',
+  'n2_kanji.json',
+  'n1_kanji.json',
   'n5_grammar.json',
   'n4_grammar.json',
   'n3_grammar.json',
+  'n2_grammar.json',
+  'n1_grammar.json',
   'n5_vocab.json',
   'n4_vocab.json',
   'n3_vocab.json',
+  'n2_vocab.json',
+  'n1_vocab.json',
   'n3_readings.json',
+  'n2_readings.json',
+  'n1_readings.json',
   'phonetic_rules.json',
   'nuance_pairs.json',
 ];
@@ -37,13 +53,21 @@ export const CHUNK_STORE_MAP: Record<string, string> = {
   'n5_kanji.json': 'kanji',
   'n4_kanji.json': 'kanji',
   'n3_kanji.json': 'kanji',
+  'n2_kanji.json': 'kanji',
+  'n1_kanji.json': 'kanji',
   'n5_grammar.json': 'grammar',
   'n4_grammar.json': 'grammar',
   'n3_grammar.json': 'grammar',
+  'n2_grammar.json': 'grammar',
+  'n1_grammar.json': 'grammar',
   'n5_vocab.json': 'vocab',
   'n4_vocab.json': 'vocab',
   'n3_vocab.json': 'vocab',
+  'n2_vocab.json': 'vocab',
+  'n1_vocab.json': 'vocab',
   'n3_readings.json': 'readings',
+  'n2_readings.json': 'readings',
+  'n1_readings.json': 'readings',
 };
 
 type SyncListener = (status: DatabaseSyncStatus) => void;
@@ -199,19 +223,27 @@ class DataLoader {
     await dbInstance.bulkSaveChunk('kanji', N5_KANJI);
     await dbInstance.bulkSaveChunk('kanji', N4_KANJI);
     await dbInstance.bulkSaveChunk('kanji', N3_KANJI);
+    await dbInstance.bulkSaveChunk('kanji', N2_KANJI);
+    await dbInstance.bulkSaveChunk('kanji', N1_KANJI);
 
     this.updateStatus({ progress: 60 });
     await dbInstance.bulkSaveChunk('grammar', N5_GRAMMAR);
     await dbInstance.bulkSaveChunk('grammar', N4_GRAMMAR);
     await dbInstance.bulkSaveChunk('grammar', N3_GRAMMAR);
+    await dbInstance.bulkSaveChunk('grammar', N2_GRAMMAR);
+    await dbInstance.bulkSaveChunk('grammar', N1_GRAMMAR);
 
     this.updateStatus({ progress: 80 });
     await dbInstance.bulkSaveChunk('vocab', N5_VOCAB_SRS);
     await dbInstance.bulkSaveChunk('vocab', N4_VOCAB_SRS);
     await dbInstance.bulkSaveChunk('vocab', N3_VOCAB_SRS);
+    await dbInstance.bulkSaveChunk('vocab', N2_VOCAB_SRS);
+    await dbInstance.bulkSaveChunk('vocab', N1_VOCAB_SRS);
 
     this.updateStatus({ progress: 95 });
     await dbInstance.bulkSaveChunk('readings', DOKKAI_READINGS);
+    await dbInstance.bulkSaveChunk('readings', N2_READINGS);
+    await dbInstance.bulkSaveChunk('readings', N1_READINGS);
   }
 
   // Fast query API from IndexedDB with level awareness
@@ -221,6 +253,8 @@ class DataLoader {
     if (level === 'N5') return N5_KANJI;
     if (level === 'N4') return N4_KANJI;
     if (level === 'N3') return N3_KANJI;
+    if (level === 'N2') return N2_KANJI;
+    if (level === 'N1') return N1_KANJI;
     return N5_KANJI;
   }
 
@@ -230,13 +264,16 @@ class DataLoader {
     if (level === 'N5') return N5_GRAMMAR;
     if (level === 'N4') return N4_GRAMMAR;
     if (level === 'N3') return N3_GRAMMAR;
+    if (level === 'N2') return N2_GRAMMAR;
+    if (level === 'N1') return N1_GRAMMAR;
     return N5_GRAMMAR;
   }
 
-  public async getReadings(level: 'N4' | 'N3'): Promise<ReadingItem[]> {
-    const list = await dbInstance.getReadingsByLevel(level);
+  public async getReadings(level: JLPTLevel): Promise<ReadingItem[]> {
+    const list = await dbInstance.getReadingsByLevel(level as 'N4' | 'N3');
     if (list.length > 0) return list;
-    return DOKKAI_READINGS.filter((r) => r.level === level);
+    const all = [...DOKKAI_READINGS, ...N2_READINGS, ...N1_READINGS];
+    return all.filter((r) => r.level === level);
   }
 
   public async getKana(): Promise<KanaItem[]> {

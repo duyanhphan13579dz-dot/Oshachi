@@ -1,6 +1,6 @@
 import React from 'react';
 import { JLPTLevel } from '../../types';
-import { Sparkles, Compass, Shield, Flame } from 'lucide-react';
+import { Sparkles, Compass, Shield, Flame, Award, Crown } from 'lucide-react';
 
 interface LevelSelectorProps {
   currentLevel: JLPTLevel;
@@ -31,16 +31,30 @@ export const LevelSelector: React.FC<LevelSelectorProps> = ({
     {
       id: 'N4',
       title: 'N4',
-      subtitle: 'Sơ cấp (Biến đổi thể)',
+      subtitle: 'Sơ cấp (Biến thể)',
       icon: <Shield className="w-3.5 h-3.5" />,
       color: 'from-cyan-500 to-blue-600',
     },
     {
       id: 'N3',
       title: 'N3',
-      subtitle: 'Trung cấp (Đọc hiểu sâu)',
+      subtitle: 'Trung cấp (Đọc sâu)',
       icon: <Flame className="w-3.5 h-3.5" />,
       color: 'from-indigo-500 to-purple-600',
+    },
+    {
+      id: 'N2',
+      title: 'N2',
+      subtitle: 'Trung cao (Luận điểm)',
+      icon: <Award className="w-3.5 h-3.5" />,
+      color: 'from-amber-500 to-orange-600',
+    },
+    {
+      id: 'N1',
+      title: 'N1',
+      subtitle: 'Cao cấp (Báo chí)',
+      icon: <Crown className="w-3.5 h-3.5" />,
+      color: 'from-rose-500 to-red-600',
     },
   ];
 

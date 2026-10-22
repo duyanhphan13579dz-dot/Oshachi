@@ -18,6 +18,7 @@ import {
   Compass,
 } from 'lucide-react';
 import {
+  ALL_JLPT_EXAMS,
   N5_MOCK_EXAM,
   JLPT_VOCAB_FREQUENCY,
   KANJI_RADICALS_214,
@@ -81,7 +82,8 @@ export const JlptExamHub: React.FC = () => {
   const handleStartSection = (sectionKey: ExamSectionCode) => {
     setCurrentSectionKey(sectionKey);
     setUserAnswers({});
-    const section = N5_MOCK_EXAM.sections[sectionKey];
+    const currentExam = ALL_JLPT_EXAMS[selectedLevel] || N5_MOCK_EXAM;
+    const section = currentExam.sections[sectionKey];
     if (!section) return;
 
     const flattened: FlattenedQuestion[] = [];
@@ -107,19 +109,22 @@ export const JlptExamHub: React.FC = () => {
     setCurrentSectionKey('quick_practice');
     setUserAnswers({});
 
+    const currentExam = ALL_JLPT_EXAMS[selectedLevel] || N5_MOCK_EXAM;
     const allQuestions: FlattenedQuestion[] = [];
-    const vSection = N5_MOCK_EXAM.sections.vocabulary;
-    vSection.mondais.forEach((m) => {
-      const qList = vSection.questions[m.id] || [];
-      qList.forEach((q) => {
-        allQuestions.push({
-          ...q,
-          mondaiTitle: m.title,
-          mondaiPassage: m.passage,
-          mondaiFormat: m.format,
+    const vSection = currentExam.sections.vocabulary;
+    if (vSection) {
+      vSection.mondais.forEach((m) => {
+        const qList = vSection.questions[m.id] || [];
+        qList.forEach((q) => {
+          allQuestions.push({
+            ...q,
+            mondaiTitle: m.title,
+            mondaiPassage: m.passage,
+            mondaiFormat: m.format,
+          });
         });
       });
-    });
+    }
 
     const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
     setCurrentQuestions(shuffled.slice(0, 10));
@@ -268,88 +273,107 @@ export const JlptExamHub: React.FC = () => {
           </div>
 
           {/* 3 Main Sections of JLPT Exam */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* 1. Vocabulary */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 transition shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 bg-cyan-500/10 text-cyan-500 rounded-xl font-bold">
-                    📖 Từ vựng
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-500">30 phút · 4 Mondai</span>
-                </div>
-                <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
-                  文字・語彙 (Từ vựng & Kanji)
-                </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
-                  Cách đọc Kanji, viết từ Hiragana sang Kanji, điền từ ngữ cảnh và tìm câu đồng nghĩa.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-xs font-semibold text-cyan-500">36 câu hỏi</span>
-                <button
-                  onClick={() => handleStartSection('vocabulary')}
-                  className="px-3.5 py-1.5 rounded-lg bg-cyan-500 text-white font-bold text-xs hover:bg-cyan-600 transition cursor-pointer"
-                >
-                  Làm bài →
-                </button>
-              </div>
-            </div>
+          {(() => {
+            const currentExam = ALL_JLPT_EXAMS[selectedLevel] || N5_MOCK_EXAM;
+            const vSec = currentExam.sections.vocabulary;
+            const grSec = currentExam.sections.grammar_reading;
+            const lSec = currentExam.sections.listening;
 
-            {/* 2. Grammar & Reading */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 bg-emerald-500/10 text-emerald-500 rounded-xl font-bold">
-                    ✍️ Ngữ pháp & Đọc
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-500">60 phút · 6 Mondai</span>
-                </div>
-                <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
-                  文法・読解 (Ngữ pháp & Đoản/Trung văn)
-                </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
-                  Phân tích ngữ pháp câu, dấu sao sắp xếp câu, đọc hiểu đoạn văn và tra cứu biểu mẫu.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-xs font-semibold text-emerald-500">33 câu hỏi</span>
-                <button
-                  onClick={() => handleStartSection('grammar_reading')}
-                  className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-white font-bold text-xs hover:bg-emerald-600 transition cursor-pointer"
-                >
-                  Làm bài →
-                </button>
-              </div>
-            </div>
+            const vCount = vSec ? Object.values(vSec.questions).reduce((acc, q) => acc + q.length, 0) : 0;
+            const grCount = grSec ? Object.values(grSec.questions).reduce((acc, q) => acc + q.length, 0) : 0;
+            const lCount = lSec ? Object.values(lSec.questions).reduce((acc, q) => acc + q.length, 0) : 0;
 
-            {/* 3. Listening */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 transition shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 bg-amber-500/10 text-amber-500 rounded-xl font-bold">
-                    🎧 Nghe hiểu
+            return (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* 1. Vocabulary */}
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 transition shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-2.5 bg-cyan-500/10 text-cyan-500 rounded-xl font-bold">
+                        📖 Từ vựng
+                      </div>
+                      <span className="text-[11px] font-semibold text-slate-500">
+                        {Math.round((vSec?.timeLimit || 1800) / 60)} phút · {vSec?.mondais.length || 0} Mondai
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
+                      文字・語彙 (Từ vựng & Kanji {selectedLevel})
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                      Cách đọc Kanji, viết từ Hiragana sang Kanji, điền từ ngữ cảnh và tìm câu đồng nghĩa.
+                    </p>
                   </div>
-                  <span className="text-[11px] font-semibold text-slate-500">40 phút · 4 Mondai</span>
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-cyan-500">{vCount} câu hỏi</span>
+                    <button
+                      onClick={() => handleStartSection('vocabulary')}
+                      className="px-3.5 py-1.5 rounded-lg bg-cyan-500 text-white font-bold text-xs hover:bg-cyan-600 transition cursor-pointer"
+                    >
+                      Làm bài →
+                    </button>
+                  </div>
                 </div>
-                <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
-                  聴解 (Nghe hiểu & Phản xạ)
-                </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
-                  Nghe hiểu nhiệm vụ, điểm cốt lõi, diễn đạt tranh vẽ và phản xạ ứng đáp tức thì có Audio.
-                </p>
+
+                {/* 2. Grammar & Reading */}
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-2.5 bg-emerald-500/10 text-emerald-500 rounded-xl font-bold">
+                        ✍️ Ngữ pháp & Đọc
+                      </div>
+                      <span className="text-[11px] font-semibold text-slate-500">
+                        {Math.round((grSec?.timeLimit || 3600) / 60)} phút · {grSec?.mondais.length || 0} Mondai
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
+                      文法・読解 (Ngữ pháp & Đoản/Trung văn {selectedLevel})
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                      Phân tích ngữ pháp câu, dấu sao sắp xếp câu, đọc hiểu đoạn văn và tra cứu biểu mẫu.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-emerald-500">{grCount} câu hỏi</span>
+                    <button
+                      onClick={() => handleStartSection('grammar_reading')}
+                      className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-white font-bold text-xs hover:bg-emerald-600 transition cursor-pointer"
+                    >
+                      Làm bài →
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. Listening */}
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 transition shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-2.5 bg-amber-500/10 text-amber-500 rounded-xl font-bold">
+                        🎧 Nghe hiểu
+                      </div>
+                      <span className="text-[11px] font-semibold text-slate-500">
+                        {Math.round((lSec?.timeLimit || 2400) / 60)} phút · {lSec?.mondais.length || 0} Mondai
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
+                      聴解 (Nghe hiểu & Phản xạ {selectedLevel})
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                      Nghe hiểu nhiệm vụ, điểm cốt lõi, diễn đạt tranh vẽ và phản xạ ứng đáp tức thì.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-amber-500">{lCount} câu hỏi</span>
+                    <button
+                      onClick={() => handleStartSection('listening')}
+                      className="px-3.5 py-1.5 rounded-lg bg-amber-500 text-white font-bold text-xs hover:bg-amber-600 transition cursor-pointer"
+                    >
+                      Làm bài →
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-xs font-semibold text-amber-500">28 câu hỏi</span>
-                <button
-                  onClick={() => handleStartSection('listening')}
-                  className="px-3.5 py-1.5 rounded-lg bg-amber-500 text-white font-bold text-xs hover:bg-amber-600 transition cursor-pointer"
-                >
-                  Làm bài →
-                </button>
-              </div>
-            </div>
-          </div>
+            );
+          })()}
 
           {/* Vocabulary Frequency & 214 Radicals Knowledge Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">

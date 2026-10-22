@@ -2119,6 +2119,570 @@ export const N5_MOCK_EXAM: JlptExam = {
   }
 };
 
+
+
+export const N4_MOCK_EXAM: JlptExam = {
+  "id": 112,
+  "level": "N4",
+  "title": "JLPT N4 - Mock Test Chuẩn format",
+  "year": 2025,
+  "month": 7,
+  "is_mock": true,
+  "slug": "n4-mock-test-1",
+  "sections": {
+    "vocabulary": {
+      "title": "Từ vựng (文字・語彙)",
+      "timeLimit": 1800,
+      "mondais": [
+        {
+          "id": "n4-m1",
+          "title": "問題1 のことばの読み方として最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "reading"
+        },
+        {
+          "id": "n4-m2",
+          "title": "問題2 のことばを漢字で書くとき、最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "orthography"
+        },
+        {
+          "id": "n4-m3",
+          "title": "問題3 ( )に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "context"
+        }
+      ],
+      "questions": {
+        "n4-m1": [
+          {
+            "id": 401,
+            "mondai_id": "n4-m1",
+            "question_text": "1. 友達を駅まで<u>案内</u>しました。",
+            "choices": [
+              "1) あんない",
+              "2) あんなん",
+              "3) かんない",
+              "4) かんなん"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 402,
+            "mondai_id": "n4-m1",
+            "question_text": "2. ここはとても<u>危険</u>ですから入らないでください。",
+            "choices": [
+              "1) きげん",
+              "2) きけん",
+              "3) けんき",
+              "4) げんき"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          },
+          {
+            "id": 403,
+            "mondai_id": "n4-m1",
+            "question_text": "3. 授業の前に<u>予習</u>をしておきます。",
+            "choices": [
+              "1) よしゅ",
+              "2) よしゅう",
+              "3) ゆうしゅ",
+              "4) ゆうしゅう"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          }
+        ],
+        "n4-m2": [
+          {
+            "id": 404,
+            "mondai_id": "n4-m2",
+            "question_text": "4. 旅行の<u>じゅんび</u>を始めましょう。",
+            "choices": [
+              "1) 準偏",
+              "2) 準備",
+              "3) 準備",
+              "4) 凖備"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          },
+          {
+            "id": 405,
+            "mondai_id": "n4-m2",
+            "question_text": "5. 大学で日本の歴史を<u>けんきゅう</u>しています。",
+            "choices": [
+              "1) 研究",
+              "2) 研求",
+              "3) 件究",
+              "4) 験究"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ],
+        "n4-m3": [
+          {
+            "id": 406,
+            "mondai_id": "n4-m3",
+            "question_text": "6. 寒いですから、窓を( )ください。",
+            "choices": [
+              "1) あけて",
+              "2) しめて",
+              "3) つけて",
+              "4) けして"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          },
+          {
+            "id": 407,
+            "mondai_id": "n4-m3",
+            "question_text": "7. 図書館では( )話さなければなりません。",
+            "choices": [
+              "1) うるさく",
+              "2) しずかに",
+              "3) にぎやかに",
+              "4) はやく"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "grammar_reading": {
+      "title": "Ngữ pháp & Đọc hiểu (文法・読解)",
+      "timeLimit": 3600,
+      "mondais": [
+        {
+          "id": "n4-gr1",
+          "title": "問題1 次の文の( )に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "grammar"
+        }
+      ],
+      "questions": {
+        "n4-gr1": [
+          {
+            "id": 408,
+            "mondai_id": "n4-gr1",
+            "question_text": "1. 宿題を( )しまいました。",
+            "choices": [
+              "1) 忘れて",
+              "2) 忘れ",
+              "3) 忘れる",
+              "4) 忘れた"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 409,
+            "mondai_id": "n4-gr1",
+            "question_text": "2. 明日は雨が( )そうです。",
+            "choices": [
+              "1) 降る",
+              "2) 降り",
+              "3) 降った",
+              "4) 降れば"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "listening": {
+      "title": "Nghe hiểu (聴解)",
+      "timeLimit": 2100,
+      "mondais": [
+        {
+          "id": "n4-l1",
+          "title": "問題1 課題理解 (Nghe hiểu nhiệm vụ)",
+          "audio_url": "https://storage.googleapis.com/luyendejlpt.firebasestorage.app/listening/mondai-1831-audio-8ccb6419-6c53-43b7-bf98-b9c6dcd07955.mp3"
+        }
+      ],
+      "questions": {
+        "n4-l1": [
+          {
+            "id": 410,
+            "mondai_id": "n4-l1",
+            "question_text": "男の人と女の人が話しています。男の人はこれから何をしますか。",
+            "choices": [
+              "1) レポートを書く",
+              "2) 先生に質問する",
+              "3) 本を買いに行く",
+              "4) 家に帰る"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          }
+        ]
+      }
+    }
+  }
+};
+
+export const N3_MOCK_EXAM: JlptExam = {
+  "id": 113,
+  "level": "N3",
+  "title": "JLPT N3 - Mock Test Trung cấp",
+  "year": 2025,
+  "month": 7,
+  "is_mock": true,
+  "slug": "n3-mock-test-1",
+  "sections": {
+    "vocabulary": {
+      "title": "Từ vựng (文字・語彙)",
+      "timeLimit": 1800,
+      "mondais": [
+        {
+          "id": "n3-m1",
+          "title": "問題1 の言葉の読み方として最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "reading"
+        }
+      ],
+      "questions": {
+        "n3-m1": [
+          {
+            "id": 301,
+            "mondai_id": "n3-m1",
+            "question_text": "1. このプロジェクトは来月<u>完成</u>する予定だ。",
+            "choices": [
+              "1) かんせい",
+              "2) かんじょう",
+              "3) がんせい",
+              "4) がんしょう"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 302,
+            "mondai_id": "n3-m1",
+            "question_text": "2. 地球の<u>環境</u>を守るために何ができるだろうか。",
+            "choices": [
+              "1) かんきょう",
+              "2) かんぎょう",
+              "3) がんきょう",
+              "4) がんぎょう"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "grammar_reading": {
+      "title": "Ngữ pháp & Đọc hiểu (文法・読解)",
+      "timeLimit": 4200,
+      "mondais": [
+        {
+          "id": "n3-gr1",
+          "title": "問題1 次の文の( )に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "grammar"
+        }
+      ],
+      "questions": {
+        "n3-gr1": [
+          {
+            "id": 303,
+            "mondai_id": "n3-gr1",
+            "question_text": "1. 高いものが必ずしも質がよい( )。",
+            "choices": [
+              "1) わけではない",
+              "2) はずがない",
+              "3) に違いない",
+              "4) わけにはいかない"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "listening": {
+      "title": "Nghe hiểu (聴解)",
+      "timeLimit": 2400,
+      "mondais": [
+        {
+          "id": "n3-l1",
+          "title": "問題1 課題理解",
+          "audio_url": "https://storage.googleapis.com/luyendejlpt.firebasestorage.app/listening/mondai-1831-audio-8ccb6419-6c53-43b7-bf98-b9c6dcd07955.mp3"
+        }
+      ],
+      "questions": {
+        "n3-l1": [
+          {
+            "id": 304,
+            "mondai_id": "n3-l1",
+            "question_text": "会社で課長と社員が話しています。社員はこの後まず何をしますか。",
+            "choices": [
+              "1) 資料をコピーする",
+              "2) 会議室を予約する",
+              "3) 取引先に電話をかける",
+              "4) 企画書を書き直す"
+            ],
+            "correct_answer_index": 2,
+            "score": "1.00"
+          }
+        ]
+      }
+    }
+  }
+};
+
+export const N2_MOCK_EXAM: JlptExam = {
+  "id": 114,
+  "level": "N2",
+  "title": "JLPT N2 - Mock Test Trung-Cao Cấp",
+  "year": 2025,
+  "month": 7,
+  "is_mock": true,
+  "slug": "n2-mock-test-1",
+  "sections": {
+    "vocabulary": {
+      "title": "Từ vựng (文字・語彙)",
+      "timeLimit": 1800,
+      "mondais": [
+        {
+          "id": "n2-m1",
+          "title": "問題1 の言葉の読み方として最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "reading"
+        }
+      ],
+      "questions": {
+        "n2-m1": [
+          {
+            "id": 201,
+            "mondai_id": "n2-m1",
+            "question_text": "1. 最近の<u>景気</u>の動向を慎重に見極める必要がある。",
+            "choices": [
+              "1) けいき",
+              "2) けいぎ",
+              "3) きょうき",
+              "4) きょうぎ"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 202,
+            "mondai_id": "n2-m1",
+            "question_text": "2. 両国の首相が会談し、共同声明を<u>発表</u>した。",
+            "choices": [
+              "1) はっぴょう",
+              "2) はつぴょう",
+              "3) はんぴょう",
+              "4) はっぴょ"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "grammar_reading": {
+      "title": "Ngữ pháp & Đọc hiểu (文法・読解)",
+      "timeLimit": 6300,
+      "mondais": [
+        {
+          "id": "n2-gr1",
+          "title": "問題1 文法形式の判断",
+          "format": "grammar"
+        }
+      ],
+      "questions": {
+        "n2-gr1": [
+          {
+            "id": 203,
+            "mondai_id": "n2-gr1",
+            "question_text": "1. 年をとる( )、体力の衰えを感じるようになった。",
+            "choices": [
+              "1) につれて",
+              "2) に基づいて",
+              "3) に際して",
+              "4) を契機に"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 204,
+            "mondai_id": "n2-gr1",
+            "question_text": "2. 証拠が揃っている以上、事実を認め( )。",
+            "choices": [
+              "1) ざるを得ない",
+              "2) わけにはいかない",
+              "3) かねる",
+              "4) に違いない"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "listening": {
+      "title": "Nghe hiểu (聴解)",
+      "timeLimit": 3000,
+      "mondais": [
+        {
+          "id": "n2-l1",
+          "title": "問題1 課題理解",
+          "audio_url": "https://storage.googleapis.com/luyendejlpt.firebasestorage.app/listening/mondai-1831-audio-8ccb6419-6c53-43b7-bf98-b9c6dcd07955.mp3"
+        }
+      ],
+      "questions": {
+        "n2-l1": [
+          {
+            "id": 205,
+            "mondai_id": "n2-l1",
+            "question_text": "セミナーで講師が話しています。参加者はこの後何を準備しなければなりませんか。",
+            "choices": [
+              "1) アンケートの記入",
+              "2) 名刺の交換",
+              "3) グループワークのレジュメ作成",
+              "4) 次回参加費の支払い"
+            ],
+            "correct_answer_index": 2,
+            "score": "1.00"
+          }
+        ]
+      }
+    }
+  }
+};
+
+export const N1_MOCK_EXAM: JlptExam = {
+  "id": 115,
+  "level": "N1",
+  "title": "JLPT N1 - Mock Test Đỉnh Cao Cao Cấp",
+  "year": 2025,
+  "month": 7,
+  "is_mock": true,
+  "slug": "n1-mock-test-1",
+  "sections": {
+    "vocabulary": {
+      "title": "Từ vựng (文字・語彙)",
+      "timeLimit": 1800,
+      "mondais": [
+        {
+          "id": "n1-m1",
+          "title": "問題1 の言葉の読み方として最もよいものを、1・2・3・4から一つ選びなさい。",
+          "format": "reading"
+        }
+      ],
+      "questions": {
+        "n1-m1": [
+          {
+            "id": 101,
+            "mondai_id": "n1-m1",
+            "question_text": "1. 計画の<u>概要</u>をプレゼンテーションで手短に説明した。",
+            "choices": [
+              "1) がいよう",
+              "2) がいとう",
+              "3) げいよう",
+              "4) げいとう"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 102,
+            "mondai_id": "n1-m1",
+            "question_text": "2. 国際情勢の悪化に深い<u>懸念</u>を表明した。",
+            "choices": [
+              "1) けねん",
+              "2) けんねん",
+              "3) かんねん",
+              "4) げねん"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "grammar_reading": {
+      "title": "Ngữ pháp & Đọc hiểu (文法・読解)",
+      "timeLimit": 6600,
+      "mondais": [
+        {
+          "id": "n1-gr1",
+          "title": "問題1 文法形式の判断 (Nghị luận & Bản xứ)",
+          "format": "grammar"
+        }
+      ],
+      "questions": {
+        "n1-gr1": [
+          {
+            "id": 103,
+            "mondai_id": "n1-gr1",
+            "question_text": "1. 理由が何( )、暴力を正当化することはできない。",
+            "choices": [
+              "1) であれ",
+              "2) に限らず",
+              "3) を皮切りに",
+              "4) と相まって"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          },
+          {
+            "id": 104,
+            "mondai_id": "n1-gr1",
+            "question_text": "2. 人命を預かる医師として、ある( )無責任な行為だ。",
+            "choices": [
+              "1) まじき",
+              "2) べき",
+              "3) ざる",
+              "4) べからず"
+            ],
+            "correct_answer_index": 0,
+            "score": "1.00"
+          }
+        ]
+      }
+    },
+    "listening": {
+      "title": "Nghe hiểu (聴解)",
+      "timeLimit": 3300,
+      "mondais": [
+        {
+          "id": "n1-l1",
+          "title": "問題1 課題理解 (Tổng hợp & Nghị luận)",
+          "audio_url": "https://storage.googleapis.com/luyendejlpt.firebasestorage.app/listening/mondai-1831-audio-8ccb6419-6c53-43b7-bf98-b9c6dcd07955.mp3"
+        }
+      ],
+      "questions": {
+        "n1-l1": [
+          {
+            "id": 105,
+            "mondai_id": "n1-l1",
+            "question_text": "大学のシンポジウムで2人の教授が議論しています。男の教授が提案している打開策は何ですか。",
+            "choices": [
+              "1) 予算の削減と人員の再配置",
+              "2) 産学連携による新技術の実証実験",
+              "3) 既存の法規制の抜本的な緩和",
+              "4) 海外市場への全面的な撤退"
+            ],
+            "correct_answer_index": 1,
+            "score": "1.00"
+          }
+        ]
+      }
+    }
+  }
+};
+
+export const ALL_JLPT_EXAMS: Record<string, JlptExam> = {
+  N5: N5_MOCK_EXAM,
+  N4: N4_MOCK_EXAM,
+  N3: N3_MOCK_EXAM,
+  N2: N2_MOCK_EXAM,
+  N1: N1_MOCK_EXAM,
+};
+
 export const JLPT_VOCAB_FREQUENCY: JlptVocabFrequency[] = [
   {
     "word": "先週",
@@ -2264,3 +2828,4 @@ export const KANJI_RADICALS_214: KanjiRadical[] = [
     "strokes": 6
   }
 ];
+

@@ -27,6 +27,8 @@ import { PhoneticRulesModal } from './components/kanji/PhoneticRulesModal';
 import { N5_KANJI } from './data/n5/kanji';
 import { N4_KANJI } from './data/n4/kanji';
 import { N3_KANJI } from './data/n3/kanji';
+import { N2_KANJI } from './data/n2/kanji';
+import { N1_KANJI } from './data/n1/kanji';
 
 // Module 3: Grammar
 import { SentenceBuilder } from './components/grammar/SentenceBuilder';
@@ -35,10 +37,14 @@ import { VerbConjugator } from './components/grammar/VerbConjugator';
 import { N5_GRAMMAR } from './data/n5/grammar';
 import { N4_GRAMMAR } from './data/n4/grammar';
 import { N3_GRAMMAR } from './data/n3/grammar';
+import { N2_GRAMMAR } from './data/n2/grammar';
+import { N1_GRAMMAR } from './data/n1/grammar';
 
 // Module 4: Dokkai
 import { DokkaiReader } from './components/reader/DokkaiReader';
 import { DOKKAI_READINGS } from './data/n3/readings';
+import { N2_READINGS } from './data/n2/readings';
+import { N1_READINGS } from './data/n1/readings';
 
 // Module JLPT Mock: OnJLPT Integration
 import { JlptExamHub } from './components/jlpt/JlptExamHub';
@@ -49,6 +55,8 @@ import { MemoryMatrix } from './components/srs/MemoryMatrix';
 import { N5_VOCAB_SRS } from './data/n5/vocab';
 import { N4_VOCAB_SRS } from './data/n4/vocab';
 import { N3_VOCAB_SRS } from './data/n3/vocab';
+import { N2_VOCAB_SRS } from './data/n2/vocab';
+import { N1_VOCAB_SRS } from './data/n1/vocab';
 
 import { Search, Sparkles, BookOpen, Layers, Trophy } from 'lucide-react';
 
@@ -137,7 +145,13 @@ export function App() {
 
   // Seed default SRS cards on first run
   useEffect(() => {
-    const combinedSeed = [...N5_VOCAB_SRS, ...N4_VOCAB_SRS, ...N3_VOCAB_SRS];
+    const combinedSeed = [
+      ...N5_VOCAB_SRS,
+      ...N4_VOCAB_SRS,
+      ...N3_VOCAB_SRS,
+      ...N2_VOCAB_SRS,
+      ...N1_VOCAB_SRS,
+    ];
     seedDefaultCards(combinedSeed);
   }, [seedDefaultCards]);
 
@@ -175,6 +189,8 @@ export function App() {
     if (dbKanji.length === 0) {
       if (currentLevel === 'N4') list = N4_KANJI;
       if (currentLevel === 'N3') list = N3_KANJI;
+      if (currentLevel === 'N2') list = N2_KANJI;
+      if (currentLevel === 'N1') list = N1_KANJI;
       if (currentLevel === 'Zero') list = N5_KANJI;
     }
 
@@ -194,6 +210,8 @@ export function App() {
     if (dbGrammar.length > 0) return dbGrammar;
     if (currentLevel === 'N4') return N4_GRAMMAR;
     if (currentLevel === 'N3') return N3_GRAMMAR;
+    if (currentLevel === 'N2') return N2_GRAMMAR;
+    if (currentLevel === 'N1') return N1_GRAMMAR;
     return N5_GRAMMAR;
   }, [currentLevel, dbGrammar]);
 
@@ -248,6 +266,8 @@ export function App() {
                 {currentLevel === 'N5' && 'Chinh phục ngữ pháp SOV và trợ từ nhập môn!'}
                 {currentLevel === 'N4' && 'Làm chủ 8 thể biến đổi động từ & Kính ngữ!'}
                 {currentLevel === 'N3' && 'Luyện đọc hiểu Dokkai và so sánh sắc thái!'}
+                {currentLevel === 'N2' && 'Chinh phục trung-cao cấp, làm chủ văn phong thời sự và luận điểm!'}
+                {currentLevel === 'N1' && 'Đỉnh cao tiếng Nhật cao cấp, đọc hiểu báo chí & nghị luận bản xứ!'}
               </span>
             </div>
           </div>
@@ -507,7 +527,10 @@ export function App() {
         {/* ================= TAB 4: TRÌNH ĐỌC HIỂU DOKKAI ================= */}
         {activeTab === 'dokkai' && (
           <div className="animate-fade-in">
-            <DokkaiReader readings={DOKKAI_READINGS} initialReadingId={selectedReadingId} />
+            <DokkaiReader
+              readings={[...DOKKAI_READINGS, ...N2_READINGS, ...N1_READINGS]}
+              initialReadingId={selectedReadingId}
+            />
           </div>
         )}
 

@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-10-22T14:58:11.686Z",
+  "generatedAt": "2026-10-22T15:18:21.224Z",
   "chunks": {
     "kana.json": {
       "count": 126,
@@ -45,6 +45,38 @@
     "n3_readings.json": {
       "count": 6,
       "size": 23471
+    },
+    "n2_kanji.json": {
+      "count": 8,
+      "size": 5648
+    },
+    "n2_grammar.json": {
+      "count": 5,
+      "size": 7199
+    },
+    "n2_vocab.json": {
+      "count": 8,
+      "size": 2015
+    },
+    "n2_readings.json": {
+      "count": 1,
+      "size": 3884
+    },
+    "n1_kanji.json": {
+      "count": 6,
+      "size": 4179
+    },
+    "n1_grammar.json": {
+      "count": 5,
+      "size": 6958
+    },
+    "n1_vocab.json": {
+      "count": 8,
+      "size": 2044
+    },
+    "n1_readings.json": {
+      "count": 1,
+      "size": 4555
     },
     "phonetic_rules.json": {
       "count": 21,

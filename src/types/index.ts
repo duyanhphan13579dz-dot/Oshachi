@@ -1,4 +1,4 @@
-export type JLPTLevel = 'Zero' | 'N5' | 'N4' | 'N3';
+export type JLPTLevel = 'Zero' | 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
 
 export type MainTab = 'kana' | 'kanji' | 'grammar' | 'dokkai' | 'srs' | 'dashboard' | 'jlpt_mock';
 
@@ -31,7 +31,7 @@ export interface KanjiItem {
   id: string;
   kanji: string;
   hanViet: string;
-  level: 'N5' | 'N4' | 'N3';
+  level: 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
   strokes: number;
   radicals: string[]; // e.g. ["氵(Thủy)", "木(Mộc)"]
   onyomi: string[];
@@ -52,7 +52,7 @@ export interface SentencePart {
 export interface GrammarItem {
   id: string;
   title: string;
-  level: 'N5' | 'N4' | 'N3';
+  level: 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
   category: string;
   formation: string; // Cấu trúc ngữ pháp
   meaningVi: string;
@@ -85,7 +85,7 @@ export type DokkaiMondaiType = 'short' | 'medium' | 'info_search';
 
 export interface ReadingItem {
   id: string;
-  level: 'N4' | 'N3';
+  level: 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
   title: string;
   topic: string;
   mondaiType?: DokkaiMondaiType; // 'short' (Mondai 10 - Đoạn ngắn), 'medium' (Mondai 11 - Đoạn trung), 'info_search' (Mondai 12 - Tìm kiếm thông tin)
@@ -106,7 +106,7 @@ export interface SRSCard {
   back: string;
   furigana?: string;
   hanViet?: string;
-  level: 'N5' | 'N4' | 'N3';
+  level: 'Zero' | 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
   type: 'vocab' | 'kanji' | 'grammar';
   repetition: number;
   interval: number; // in days

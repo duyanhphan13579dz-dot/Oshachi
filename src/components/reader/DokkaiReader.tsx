@@ -53,7 +53,7 @@ export const DokkaiReader: React.FC<DokkaiReaderProps> = ({ readings, initialRea
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [focusedSentenceIndex, setFocusedSentenceIndex] = useState<number | null>(null);
   const [activeLookupWord, setActiveLookupWord] = useState<WordLookup | null>(null);
-  const [levelFilter, setLevelFilter] = useState<'ALL' | 'N4' | 'N3'>('ALL');
+  const [levelFilter, setLevelFilter] = useState<'ALL' | 'N5' | 'N4' | 'N3' | 'N2' | 'N1'>('ALL');
 
   // User Quiz answers state: { [qIndex: number]: chosenIndex }
   const [quizAnswers, setQuizAnswers] = useState<{ [qIndex: number]: number }>({});
@@ -277,7 +277,7 @@ export const DokkaiReader: React.FC<DokkaiReaderProps> = ({ readings, initialRea
 
           {/* Level Filter Tabs */}
           <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs font-semibold">
-            {(['ALL', 'N4', 'N3'] as const).map(lvl => (
+            {(['ALL', 'N4', 'N3', 'N2', 'N1'] as const).map(lvl => (
               <button
                 key={lvl}
                 onClick={() => setLevelFilter(lvl)}

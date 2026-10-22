@@ -1,0 +1,85 @@
+import { GrammarItem } from '../../types';
+
+export const N2_GRAMMAR: GrammarItem[] = [
+  {
+    id: 'n2-g1-ni-tsurete',
+    title: '～につれて / ～にしたがって (Càng... càng... / Kéo theo đó)',
+    level: 'N2',
+    category: 'Biến đổi tương hỗ & Tiến trình',
+    formation: 'Động từ từ điển (V-ru) / Danh từ + につれて',
+    meaningVi: 'Cùng với sự biến đổi của A thì B cũng biến đổi theo tỉ lệ thuận tự nhiên',
+    explanationVi: 'Diễn tả mối quan hệ biến đổi song hành mang tính tự nhiên, kéo dài theo thời gian (tuổi tác, nhiệt độ, công nghệ phát triển kéo theo xã hội thay đổi).',
+    examples: [
+      { jp: '年をとるにつれて、物忘れがひどくなってきた。', furigana: 'としをとるにつれて、ものわすれがひどくなってきた。', vi: 'Càng có tuổi thì chứng hay quên càng trở nên nghiêm trọng.' },
+      { jp: '台風が近づくにつれて、風と雨が強くなってきた。', furigana: 'たいふうがちかづくにつれて、かぜとあめがつよくなってきた。', vi: 'Càng gần bão đến thì gió và mưa càng gắt hơn.' },
+      { jp: '経済の発展につれて、国民の生活水準も向上した。', furigana: 'けいざいのはってんにつれて、こくみんのせいかつすいじゅんもこうじょうした。', vi: 'Cùng với sự phát triển của nền kinh tế, mức sống của người dân cũng được nâng cao.' },
+    ],
+    nuanceVs: {
+      rivalTitle: '～とともに (Cùng với... / Đồng thời)',
+      difference: 'につれて nhấn mạnh sự biến đổi tự nhiên 1 chiều; とともに có thể dùng cho sự biến đổi 2 chiều hoặc mang nghĩa làm việc gì cùng nhau.',
+      whenToUseA: 'Dùng につれて khi nhấn mạnh chiều hướng tự nhiên thay đổi tuần tự.',
+      whenToUseB: 'Dùng とともに khi diễn tả 2 sự việc xảy ra đồng thời cùng lúc hoặc cùng với một ai đó.',
+      trick: 'につれて = "Kéo theo đó một cách tự nhiên".',
+    },
+  },
+  {
+    id: 'n2-g2-ni-motozuite',
+    title: '～に基づいて (Dựa trên / Căn cứ vào)',
+    level: 'N2',
+    category: 'Căn cứ & Tiêu chuẩn',
+    formation: 'Danh từ + に基づいて / Danh từ + に基づく + N',
+    meaningVi: 'Lấy cái gì làm cơ sở, nền tảng, căn cứ để tiến hành hành động',
+    explanationVi: 'Thường đi kèm với các danh từ chỉ dữ liệu, luật pháp, kế hoạch, kinh nghiệm thực tế (法, データ, 計画, 調査).',
+    examples: [
+      { jp: '最新の調査データに基づいて、今後の戦略を立てる。', furigana: 'さいしんのちょうさデータにもとづいて、こんごのせんりゃくをたてる。', vi: 'Dựa trên số liệu điều tra mới nhất, chúng tôi lập chiến lược cho tương lai.' },
+      { jp: 'この映画は、実際に起きた事件に基づいて作られた。', furigana: 'このえいがは、じっさいにおきたじけんにもとづいてつくられた。', vi: 'Bộ phim này được xây dựng dựa trên một sự kiện có thật ngoài đời.' },
+    ],
+    nuanceVs: {
+      rivalTitle: '～をもとに (Lấy làm chất liệu / Cảm hứng)',
+      difference: 'に基づいて mang tính pháp lý, cơ sở khoa học chặt chẽ; còn をもとに mang tính lấy chất liệu, ý tưởng sáng tác.',
+      whenToUseA: 'Dùng に基づいて trong hợp đồng, nghiên cứu, chính sách.',
+      whenToUseB: 'Dùng をもとに khi viết truyện, làm phim, lấy cảm hứng sáng tác.',
+      trick: 'に基づいて = "Cơ sở dữ liệu pháp lý vững chắc".',
+    },
+  },
+  {
+    id: 'n2-g3-wake-niwa-ikanai',
+    title: '～わけにはいかない (Không thể làm vì đạo đức/lương tâm/nguyên tắc)',
+    level: 'N2',
+    category: 'Tâm lý & Nghĩa vụ đạo đức',
+    formation: 'V-ru + わけにはいかない / V-nai + わけにはいかない (phải làm)',
+    meaningVi: 'Không thể làm việc đó được (dù có khả năng nhưng vì đạo lý, lương tâm hoặc hoàn cảnh không cho phép)',
+    explanationVi: 'Khác với できない (không có khả năng thể chất hay năng lực), わけにはいかない là bản thân có thể làm nhưng lý trí và chuẩn mực xã hội ngăn cản.',
+    examples: [
+      { jp: '明日は大事な試験があるので、夜更かしするわけにはいかない。', furigana: 'あしたはだいじなしけんがあるので、よふかしするわけにはいかない。', vi: 'Ngày mai có kỳ thi quan trọng nên tôi không thể thức khuya được.' },
+      { jp: '親友が困っているのだから、見捨てるわけにはいかない。', furigana: 'しんゆうがこまっているのだから、みすてるわけにはいかない。', vi: 'Bạn thân đang gặp khó khăn, tôi không thể bỏ mặc được.' },
+      { jp: '約束した以上、行かないわけにはいかない。', furigana: 'やくそくしたいじょう、いかないわけにはいかない。', vi: 'Một khi đã hứa rồi thì không thể không đi (buộc phải đi).' },
+    ],
+  },
+  {
+    id: 'n2-g4-zaru-wo-enai',
+    title: '～ざるを得ない (Đành phải / Buộc lòng phải làm)',
+    level: 'N2',
+    category: 'Bất đắc dĩ & Trách nhiệm',
+    formation: 'V-nai (bỏ ない) + ざるを得ない (Đặc biệt: する -> せざるを得ない)',
+    meaningVi: 'Dù không muốn nhưng do hoàn cảnh ép buộc nên đành phải làm',
+    explanationVi: 'Diễn tả sự bất đắc dĩ, không còn lựa chọn nào khác ngoài hành động này.',
+    examples: [
+      { jp: '証拠が揃っている以上、事実を認めざるを得ない。', furigana: 'しょうこがそろっているいじょう、じじつをみとめざるをえない。', vi: 'Một khi bằng chứng đã đủ, tôi đành phải thừa nhận sự thật.' },
+      { jp: '台風が直撃するため、今回のイベントは中止せざるを得ない。', furigana: 'たいふうがちょくげきするため、こんかいのイベントはちゅうしせざるをえない。', vi: 'Do bão đổ bộ trực tiếp nên chúng tôi buộc lòng phải hủy sự kiện lần này.' },
+    ],
+  },
+  {
+    id: 'n2-g5-kaneru',
+    title: '～かねる (Khó lòng / Không thể làm được trong hoàn cảnh này)',
+    level: 'N2',
+    category: 'Từ chối lịch sự trong kinh doanh',
+    formation: 'V-masu (bỏ ます) + かねる',
+    meaningVi: 'Rất tiếc nhưng ở vị trí/hoàn cảnh này chúng tôi không thể đáp ứng',
+    explanationVi: 'Cách nói từ chối trang trọng, tế nhị hàng đầu trong môi trường công sở Nhật Bản (ビジネス日本語). Tránh nói thẳng できません.',
+    examples: [
+      { jp: 'お客様のご要望には、お応えしかねます。', furigana: 'おきゃくさまのごようぼうには、おこたえしかねます。', vi: 'Chúng tôi rất tiếc nhưng khó lòng đáp ứng được yêu cầu của quý khách.' },
+      { jp: '個人情報に関することですので、お答えしかねます。', furigana: 'こじんじょうほうにかんすることですので、おこたえしかねます。', vi: 'Vì đây là thông tin cá nhân nên tôi xin phép không thể trả lời.' },
+    ],
+  },
+];
