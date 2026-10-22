@@ -12,6 +12,10 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   base: './',
   plugins: [react(), tailwindcss(), viteSingleFile()],
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
