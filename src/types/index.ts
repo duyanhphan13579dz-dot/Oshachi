@@ -1,6 +1,8 @@
 export type JLPTLevel = 'Zero' | 'N5' | 'N4' | 'N3';
 
-export type MainTab = 'kana' | 'kanji' | 'grammar' | 'dokkai' | 'srs' | 'dashboard';
+export type MainTab = 'kana' | 'kanji' | 'grammar' | 'dokkai' | 'srs' | 'dashboard' | 'jlpt_mock';
+
+export * from './jlpt';
 
 export interface KanaItem {
   id: string;

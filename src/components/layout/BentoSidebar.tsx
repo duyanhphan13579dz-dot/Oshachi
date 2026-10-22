@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainTab } from '../../types';
-import { Sparkles, BookOpen, GitCompare, BookMarked, Brain, BarChart3 } from 'lucide-react';
+import { Sparkles, BookOpen, GitCompare, BookMarked, Brain, BarChart3, Trophy } from 'lucide-react';
 
 interface BentoSidebarProps {
   activeTab: MainTab;
@@ -33,6 +33,11 @@ export const BentoSidebar: React.FC<BentoSidebarProps> = ({
       id: 'dokkai',
       label: 'Đọc hiểu Dokkai',
       icon: <BookMarked className="w-4 h-4" />,
+    },
+    {
+      id: 'jlpt_mock',
+      label: 'Luyện thi JLPT OnJLPT',
+      icon: <Trophy className="w-4 h-4" />,
     },
     {
       id: 'srs',

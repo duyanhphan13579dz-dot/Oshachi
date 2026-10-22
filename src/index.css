@@ -227,3 +227,25 @@
 .animate-loading-bar {
   animation: oceanLoading 1.4s ease-in-out infinite;
 }
+
+/* Furigana Ruby Mechanics (Matches OnJLPT) */
+ruby {
+  ruby-align: center;
+}
+
+rt {
+  font-size: 0.65em;
+  user-select: none;
+  transition: opacity 0.2s ease;
+  color: #06b6d4;
+}
+
+.dark rt {
+  color: #38bdf8;
+}
+
+.hide-furigana rt {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+

@@ -40,6 +40,9 @@ import { N3_GRAMMAR } from './data/n3/grammar';
 import { DokkaiReader } from './components/reader/DokkaiReader';
 import { DOKKAI_READINGS } from './data/n3/readings';
 
+// Module JLPT Mock: OnJLPT Integration
+import { JlptExamHub } from './components/jlpt/JlptExamHub';
+
 // Module 5: SRS & Dashboard
 import { SRSFlashcardDeck } from './components/srs/SRSFlashcardDeck';
 import { MemoryMatrix } from './components/srs/MemoryMatrix';
@@ -505,6 +508,13 @@ export function App() {
         {activeTab === 'dokkai' && (
           <div className="animate-fade-in">
             <DokkaiReader readings={DOKKAI_READINGS} initialReadingId={selectedReadingId} />
+          </div>
+        )}
+
+        {/* ================= TAB: LUYỆN THI JLPT MANTEN (ONJLPT CLONE) ================= */}
+        {activeTab === 'jlpt_mock' && (
+          <div className="animate-fade-in">
+            <JlptExamHub />
           </div>
         )}
 
